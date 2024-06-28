@@ -50,6 +50,19 @@ public class InteractiveObject : MonoBehaviour
 
     private void PhysMagic(string formula)
     {
+        switch(formula.ToLower())
+        {
+            case "static":
+                rb.bodyType = RigidbodyType2D.Static;
+                break;
+            case "kinematic":
+                rb.bodyType = RigidbodyType2D.Kinematic;
+                break;
+            case "dynamic":
+                rb.bodyType = RigidbodyType2D.Dynamic;
+                break;
+        }
+
         switch(formula[0])
         {
             case 'F':
@@ -67,7 +80,10 @@ public class InteractiveObject : MonoBehaviour
     {
         text = text.Replace(" ", String.Empty);
         if (Regex.IsMatch(text, @"F=\(-?\d+(\.?\d+)?,-?\d+(\.?\d+)?\)") ||
-            Regex.IsMatch(text, @"m=\d+(\.?\d+)?")) // Если регексы подходят (сюда будем добавлять новые)
+            Regex.IsMatch(text, @"m=\d+(\.?\d+)?") ||
+            text.ToLower().Equals("static") && rb.bodyType != RigidbodyType2D.Static ||
+            text.ToLower().Equals("kinematic") && rb.bodyType != RigidbodyType2D.Kinematic ||
+            text.ToLower().Equals("dynamic") && rb.bodyType != RigidbodyType2D.Dynamic) // Если регексы подходят (сюда будем добавлять новые)
         {
             Time.timeScale = 1;
             PhysMagic(text);
