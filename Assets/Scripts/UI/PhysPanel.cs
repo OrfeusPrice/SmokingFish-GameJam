@@ -8,8 +8,8 @@ using UnityEngine.UI;
 public class PhysPanel : MonoBehaviour
 {
     [SerializeField] private InteractiveObject obj;
+    [SerializeField] private GameObject parent;
     private TMP_InputField input;
-    [SerializeField] GameObject parent;
 
     void Start()
     {
@@ -22,7 +22,7 @@ public class PhysPanel : MonoBehaviour
         {
             input.text = "";
             obj = null;
-            parent.SetActive(false);
+            parent.transform.localScale = new Vector3(0, 0, 0);
         }
     }
 

@@ -25,7 +25,7 @@ public class PlayerMove : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Time.timeScale != 0 && Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }

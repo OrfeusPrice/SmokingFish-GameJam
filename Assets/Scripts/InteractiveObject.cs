@@ -11,7 +11,6 @@ using System;
 public class InteractiveObject : MonoBehaviour
 {
     private Rigidbody2D rb;
-    [SerializeField] private Vector2 velocity;
     private bool mouseOnColl;
     [SerializeField] private GameObject panel;
     private PhysPanel physPanel;
@@ -23,7 +22,6 @@ public class InteractiveObject : MonoBehaviour
         mouseOnColl = false;
         panel = GameObject.FindGameObjectWithTag("PhysPanel");
         physPanel = panel.GetComponentInChildren<PhysPanel>();
-        panel.SetActive(false);
     }
 
     void Update()
@@ -33,9 +31,9 @@ public class InteractiveObject : MonoBehaviour
 
     private void RMBPressed()
     {
-        if (!panel.activeSelf && mouseOnColl && Input.GetMouseButtonDown(1))
+        if (panel.transform.localScale.magnitude == 0 && mouseOnColl && Input.GetMouseButtonDown(1))
         {
-            panel.SetActive(true);
+            panel.transform.localScale = new Vector3(1, 1, 1);
             StartCoroutine(WaitingFormula());
             Debug.Log("Click RMB");
         }
@@ -47,17 +45,20 @@ public class InteractiveObject : MonoBehaviour
         Time.timeScale = 0;
         yield return new WaitForSeconds(time);
         Time.timeScale = 1;
-        panel.SetActive(false);
+        panel.transform.localScale = new Vector3(0, 0, 0);
     }
 
     private void PhysMagic(string formula)
     {
         switch(formula[0])
         {
-            case 'v':
-                MatchCollection floats = Regex.Matches(Regex.Match(formula, @"v=\(-?\d+(\.?\d+)?,-?\d+(\.?\d+)?\)").Value,
+            case 'F':
+                MatchCollection floats = Regex.Matches(Regex.Match(formula, @"F=\(-?\d+(\.?\d+)?,-?\d+(\.?\d+)?\)").Value,
                     @"-?\d+(\.?\d+)?");
                 rb.AddForce(new Vector2(float.Parse(floats[0].Value), float.Parse(floats[1].Value)));
+                break;
+            case 'm':
+                rb.mass = float.Parse(Regex.Match(formula, @"\d+(\.?\d+)?").Value);
                 break;
         }
     }
@@ -65,8 +66,8 @@ public class InteractiveObject : MonoBehaviour
     public bool GetFormula(string text)
     {
         text = text.Replace(" ", String.Empty);
-        if (Regex.IsMatch(text, @"v=\(-?\d+(\.?\d+)?,-?\d+(\.?\d+)?\)") ||
-            Regex.IsMatch(text, @"v=\(-?\d+(\.?\d+)?,-?\d+(\.?\d+)?\)")) // Если регексы подходят (сюда будем добавлять новые)
+        if (Regex.IsMatch(text, @"F=\(-?\d+(\.?\d+)?,-?\d+(\.?\d+)?\)") ||
+            Regex.IsMatch(text, @"m=\d+(\.?\d+)?")) // Если регексы подходят (сюда будем добавлять новые)
         {
             Time.timeScale = 1;
             PhysMagic(text);
