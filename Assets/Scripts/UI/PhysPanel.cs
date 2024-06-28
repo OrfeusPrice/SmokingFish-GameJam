@@ -20,6 +20,7 @@ public class PhysPanel : MonoBehaviour
     {
         if (obj.GetFormula(input.text))
         {
+            input.text = "";
             obj = null;
             parent.SetActive(false);
         }

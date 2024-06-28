@@ -4,6 +4,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
+using System.Text.RegularExpressions;
+using static System.Convert;
+using System;
 
 public class InteractiveObject : MonoBehaviour
 {
@@ -36,30 +39,37 @@ public class InteractiveObject : MonoBehaviour
             StartCoroutine(WaitingFormula());
             Debug.Log("Click RMB");
         }
-
-        if (panel.activeSelf)
-            PhysMagic();
     }
 
     private IEnumerator WaitingFormula()
     {
         physPanel.SetInteractiveObject(this);
+        Time.timeScale = 0;
         yield return new WaitForSeconds(time);
+        Time.timeScale = 1;
         panel.SetActive(false);
     }
 
-    private void PhysMagic()
+    private void PhysMagic(string formula)
     {
-        //if (Input.GetKeyDown(KeyCode.Right)
-            //Debug.Log("Pressed Enter");
-        //StopCoroutine(WaitingFormula());
+        switch(formula[0])
+        {
+            case 'v':
+                MatchCollection floats = Regex.Matches(Regex.Match(formula, @"v=\(-?\d+(\.?\d+)?,-?\d+(\.?\d+)?\)").Value,
+                    @"-?\d+(\.?\d+)?");
+                rb.AddForce(new Vector2(float.Parse(floats[0].Value), float.Parse(floats[1].Value)));
+                break;
+        }
     }
 
     public bool GetFormula(string text)
     {
-        if (time < 1000) // Если регексы подходят
+        text = text.Replace(" ", String.Empty);
+        if (Regex.IsMatch(text, @"v=\(-?\d+(\.?\d+)?,-?\d+(\.?\d+)?\)") ||
+            Regex.IsMatch(text, @"v=\(-?\d+(\.?\d+)?,-?\d+(\.?\d+)?\)")) // Если регексы подходят (сюда будем добавлять новые)
         {
-            StopCoroutine(WaitingFormula());
+            Time.timeScale = 1;
+            PhysMagic(text);
             return true;
         }
         return false;

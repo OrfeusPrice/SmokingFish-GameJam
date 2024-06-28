@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PhObj
   - EnemyKnob
+  - PhysPanel
   layers:
   - Default
   - TransparentFX
