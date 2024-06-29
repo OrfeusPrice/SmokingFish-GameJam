@@ -31,7 +31,7 @@ public class PhysPanel : MonoBehaviour
     {
         if (parent.transform.localScale.magnitude == 0 && Input.GetKeyDown(KeyCode.E))
             OpenPanel();
-        else if (Time.timeScale != 0 && Input.GetKeyDown(KeyCode.E))
+        else if (Input.GetKeyDown(KeyCode.E))
             ClosePanel();
     }
 
@@ -45,7 +45,7 @@ public class PhysPanel : MonoBehaviour
                 parent.transform.localScale = new Vector3(0, 0, 0);
                 input.text = "";
             }
-            else
+            else if (parent.transform.localScale.magnitude > 0)
                 StartCoroutine(Error());
         }
         else
@@ -59,12 +59,12 @@ public class PhysPanel : MonoBehaviour
                     parent.transform.localScale = new Vector3(0, 0, 0);
                     input.text = "";
                 }
-                else
+                else if (parent.transform.localScale.magnitude > 0)
                 {
                     StartCoroutine(Error());
                 }
             }
-            else
+            else if (parent.transform.localScale.magnitude > 0)
             {
                 StartCoroutine(Error());
             }
@@ -95,12 +95,13 @@ public class PhysPanel : MonoBehaviour
         camera.transform.position = vec;
     }
 
-    private void OpenPanel()
+    public void OpenPanel()
     {
+        input.text = "";
         parent.transform.localScale = new Vector3(1, 1, 1);
     }
 
-    private void ClosePanel()
+    public void ClosePanel()
     {
         parent.transform.localScale = new Vector3(0, 0, 0);
     }
