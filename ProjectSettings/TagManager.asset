@@ -9,6 +9,8 @@ TagManager:
   - PhysPanel
   - Canvas
   - Magic
+  - GuidPanel
+  - PhysInput
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - Particle
   - Enemy
   - PhObj
-  - 
+  - NoneClick
   - 
   - 
   - 

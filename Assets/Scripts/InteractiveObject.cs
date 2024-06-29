@@ -34,7 +34,7 @@ public class InteractiveObject : MonoBehaviour
     {
         if (panel.transform.localScale.magnitude == 0 && mouseOnColl && Input.GetMouseButtonDown(1))
         {
-            panel.transform.localScale = new Vector3(1, 1, 1);
+            physPanel.OpenPanel();
             StartCoroutine(WaitingFormula());
             Debug.Log("Click RMB");
         }
@@ -46,7 +46,7 @@ public class InteractiveObject : MonoBehaviour
         Time.timeScale = 0;
         yield return new WaitForSeconds(time);
         Time.timeScale = 1;
-        panel.transform.localScale = new Vector3(0, 0, 0);
+        physPanel.ClosePanel();
     }
 
     private void PhysMagic(string formula)
