@@ -171,5 +171,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea097b6a229f5146826e3ecc500e0dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: {x: 0, y: 0}
   panel: {fileID: 0}
+  formula: A=FS
