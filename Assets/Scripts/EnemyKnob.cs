@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyKnob : MonoBehaviour
 {
     public GameObject projectilePrefab;
-    public Dictionary<ParticleEffect, bool> part_effects = new Dictionary<ParticleEffect, bool>();
+    //public Dictionary<ParticleEffect, bool> part_effects = new Dictionary<ParticleEffect, bool>();
     public Transform firePoint;
     public float projectileSpeed = 20f;
     public float fireRate = 0.1f;
@@ -15,9 +15,9 @@ public class EnemyKnob : MonoBehaviour
 
     private void Start()
     {
-        part_effects.Add(projectilePrefab.GetComponent<F_UP>(), true);
-        part_effects.Add(projectilePrefab.GetComponent<F_DOWN>(), false);
-        GetComponent<SpriteRenderer>().color = Color.blue;
+        //part_effects.Add(projectilePrefab.GetComponent<F_UP>(), true);
+        //part_effects.Add(projectilePrefab.GetComponent<F_DOWN>(), false);
+        //GetComponent<SpriteRenderer>().color = Color.blue;
         formula = "";
     }
 
@@ -31,19 +31,19 @@ public class EnemyKnob : MonoBehaviour
             nextFireTime = Time.time + fireRate;
         }   
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            part_effects[projectilePrefab.GetComponent<F_UP>()] = true;
-            part_effects[projectilePrefab.GetComponent<F_DOWN>()] = false;
-            GetComponent<SpriteRenderer>().color = Color.blue;
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha1))
+        //{
+        //    part_effects[projectilePrefab.GetComponent<F_UP>()] = true;
+        //    part_effects[projectilePrefab.GetComponent<F_DOWN>()] = false;
+        //    GetComponent<SpriteRenderer>().color = Color.blue;
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            part_effects[projectilePrefab.GetComponent<F_UP>()] = false;
-            part_effects[projectilePrefab.GetComponent<F_DOWN>()] = true;
-            GetComponent<SpriteRenderer>().color = Color.red;
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha2))
+        //{
+        //    part_effects[projectilePrefab.GetComponent<F_UP>()] = false;
+        //    part_effects[projectilePrefab.GetComponent<F_DOWN>()] = true;
+        //    GetComponent<SpriteRenderer>().color = Color.red;
+        //}
     }
 
     public void SetFormula(string text) => formula = text;

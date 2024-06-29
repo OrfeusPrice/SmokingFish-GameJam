@@ -11,10 +11,8 @@ GameObject:
   - component: {fileID: 2060387692736369233}
   - component: {fileID: 3547580358080270347}
   - component: {fileID: -7691867609401363541}
-  - component: {fileID: 7197360089051375154}
-  - component: {fileID: -7859059410278107492}
-  - component: {fileID: 4431843909010512264}
   - component: {fileID: -3209900877242856773}
+  - component: {fileID: -5670398341991532173}
   m_Layer: 0
   m_Name: Magic
   m_TagString: Magic
@@ -32,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.389, y: -2.303, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.79392004, a: 1}
+  m_Sprite: {fileID: 21300000, guid: cc995374abcb75c418d3e40bfc99e337, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -116,7 +114,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &7197360089051375154
+--- !u!114 &-3209900877242856773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3717125786496329115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2946aa3ab53381d4eabe51336e1a2c4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knob: {fileID: 0}
+  formula: 
+--- !u!58 &-5670398341991532173
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,42 +162,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &-7859059410278107492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3717125786496329115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59414a7803a7b9842889faddd2f2407d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4431843909010512264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3717125786496329115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e49bf6f84bdc85c4fb72969b333f6b31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-3209900877242856773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3717125786496329115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2946aa3ab53381d4eabe51336e1a2c4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knob: {fileID: 0}
-  formula: 
+  m_Radius: 0.08
