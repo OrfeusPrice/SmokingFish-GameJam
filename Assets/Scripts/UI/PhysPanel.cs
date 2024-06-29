@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -11,12 +12,14 @@ public class PhysPanel : MonoBehaviour
     [SerializeField] private GameObject parent;
     [SerializeField] private string[] formulas;
     private Dictionary<string, string> dictFormsulas;
+    public GameObject camera;
     private TMP_InputField input;
     private string formula;
     private EnemyKnob enemyKnob;
 
     void Start()
     {
+        camera = GameObject.FindGameObjectWithTag("MainCamera");
         dictFormsulas = new Dictionary<string, string>();
         input = GetComponent<TMP_InputField>();
         enemyKnob = GameObject.FindGameObjectWithTag("EnemyKnob").GetComponent<EnemyKnob>();
@@ -42,17 +45,54 @@ public class PhysPanel : MonoBehaviour
                 parent.transform.localScale = new Vector3(0, 0, 0);
                 input.text = "";
             }
+            else
+                StartCoroutine(Error());
         }
         else
         {
             string text = input.text.Replace(" ", string.Empty);
-            if (dictFormsulas[text.Split('=')[0]] == text.Split('=')[1])
+            if (dictFormsulas.Keys.Contains(text.Split('=')[0]))
             {
-                enemyKnob.SetFormula(text);
-                parent.transform.localScale = new Vector3(0, 0, 0);
-                input.text = "";
+                if (dictFormsulas[text.Split('=')[0]] == text.Split('=')[1])
+                {
+                    enemyKnob.SetFormula(text);
+                    parent.transform.localScale = new Vector3(0, 0, 0);
+                    input.text = "";
+                }
+                else
+                {
+                    StartCoroutine(Error());
+                }
+            }
+            else
+            {
+                StartCoroutine(Error());
             }
         }
+    }
+
+    private IEnumerator Error()
+    {
+        /*Vector3 vec = camera.transform.localPosition;
+        camera.transform.localPosition = new Vector3(vec.x - 0.5f, vec.y - 0.5f, vec.z);
+        yield return new WaitForSeconds(1f);
+        camera.transform.localPosition = vec;*/
+        Vector3 vec = camera.transform.localPosition;
+        float x;
+        float y;
+        float timeLeft = 0.3f;
+
+        while ((timeLeft) > 0)
+        {
+            x = Random.Range(-0.3f, 0.3f);
+            y = Random.Range(-0.3f, 0.3f);
+
+            camera.transform.position = new Vector3(vec.x + x, vec.y + y, vec.z);
+            yield return new WaitForSecondsRealtime(0.025f);
+            timeLeft -= 0.025f;
+        }
+
+        camera.transform.position = vec;
     }
 
     private void OpenPanel()
