@@ -10,8 +10,8 @@ public class Buttons : MonoBehaviour
     private GameObject canvas;
     [SerializeField] string[] formulas;
     [SerializeField] TMP_Text text;
-    private (int, int) xrange = (400, 1400);// (-500, 500);
-    private (int, int) yrange = (300, 500); // (-300, -100);
+    private (int, int) xrange = (-100, 1800);// (-500, 500);
+    private (int, int) yrange = (0, 500); // (-300, -100);
     private float maxTime = 4f;
 
     private void Start()
@@ -50,7 +50,7 @@ public class Buttons : MonoBehaviour
 
         while (time > 0)
         {
-            obj.transform.position = obj.transform.position + new Vector3(0, Time.deltaTime * 100f, 0);
+            obj.transform.position = obj.transform.position + new Vector3(0, Time.deltaTime * 200f, 0);
             obj.color = new Color(obj.color.r, obj.color.g, obj.color.b , obj.color.a - Time.deltaTime * 0.4f);
             yield return new WaitForSeconds(Time.deltaTime);
             time -= Time.deltaTime;
