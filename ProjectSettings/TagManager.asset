@@ -8,6 +8,7 @@ TagManager:
   - EnemyKnob
   - PhysPanel
   - Canvas
+  - Magic
   layers:
   - Default
   - TransparentFX
