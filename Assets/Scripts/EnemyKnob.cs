@@ -46,9 +46,7 @@ public class EnemyKnob : MonoBehaviour
         }
     }
 
-    public void SetFormula(string text)
-    {
-        formula = text;
-        Debug.Log("formula = " + formula);
-    }
+    public void SetFormula(string text) => formula = text;
+
+    public string GetFormula() => formula;
 }

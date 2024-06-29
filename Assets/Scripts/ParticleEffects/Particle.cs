@@ -7,10 +7,12 @@ public class Particle : MonoBehaviour
 {
     public Dictionary<ParticleEffect, bool> part_effects = new Dictionary<ParticleEffect, bool>();
     public EnemyKnob knob;
+    public string formula;
 
     private void Start()
     {
         knob = GameObject.FindGameObjectWithTag("EnemyKnob").GetComponent<EnemyKnob>();
+        formula = knob.GetFormula();
         part_effects = knob.part_effects;
         StartCoroutine(Destr());
     }
@@ -29,6 +31,8 @@ public class Particle : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    public string GetFormula() => formula;
 
     IEnumerator Destr()
     {

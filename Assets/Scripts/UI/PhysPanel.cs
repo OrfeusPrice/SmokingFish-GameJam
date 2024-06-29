@@ -21,10 +21,7 @@ public class PhysPanel : MonoBehaviour
         input = GetComponent<TMP_InputField>();
         enemyKnob = GameObject.FindGameObjectWithTag("EnemyKnob").GetComponent<EnemyKnob>();
         foreach (string str in formulas)
-        {
-            Debug.Log(str);
             dictFormsulas.Add(str.Split('=')[0], str.Split('=')[1]);
-        }
     }
 
     private void Update()
@@ -56,11 +53,6 @@ public class PhysPanel : MonoBehaviour
                 input.text = "";
             }
         }
-    }
-
-    private void EnterFormula()
-    {
-
     }
 
     private void OpenPanel()

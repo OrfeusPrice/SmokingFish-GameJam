@@ -15,6 +15,7 @@ public class InteractiveObject : MonoBehaviour
     [SerializeField] private GameObject panel;
     private PhysPanel physPanel;
     private float time = 30f;
+    [SerializeField] private string formula;
 
     void Start()
     {
@@ -94,6 +95,20 @@ public class InteractiveObject : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    private void ActFormula()
+    {
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!formula.Equals(string.Empty))
+        {
+            if (collision.gameObject.tag == "Magic" && collision.gameObject.GetComponent<Particle>().GetFormula().Equals(formula))
+                ActFormula();
+        }
     }
 
     private void OnMouseEnter()
