@@ -202,6 +202,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
   parent: {fileID: 2451268527000450953}
+  formulas:
+  - A=FS
+  - n=(Q1-Q2)/Q1*100%
+  - Ek=mv^2/2
+  - Ep=gmh
+  - Fa=grV
+  - I=q/t
 --- !u!1 &1054363820952497769
 GameObject:
   m_ObjectHideFlags: 0

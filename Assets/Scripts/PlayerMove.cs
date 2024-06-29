@@ -11,23 +11,28 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     private bool isGrounded = false;
     public LayerMask groundLayer;
+    private GameObject panel;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         collider = GetComponent<CapsuleCollider2D>();
+        panel = GameObject.FindGameObjectWithTag("PhysPanel");
     }
 
     void Update()
     {
         isGrounded = Physics2D.IsTouchingLayers(collider, groundLayer);
 
-        float horizontalInput = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
-
-        if (Time.timeScale != 0 && Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (panel.transform.localScale.magnitude == 0)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            float horizontalInput = Input.GetAxis("Horizontal");
+            rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
+
+            if (Input.GetKeyDown(KeyCode.Space) && isGrounded) // Time.timeScale != 0 &&
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            }
         }
     }
 }

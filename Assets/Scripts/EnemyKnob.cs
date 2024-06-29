@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,12 +11,14 @@ public class EnemyKnob : MonoBehaviour
     public float projectileSpeed = 20f;
     public float fireRate = 0.1f;
     private float nextFireTime = 0f;
+    private string formula;
 
     private void Start()
     {
         part_effects.Add(projectilePrefab.GetComponent<F_UP>(), true);
         part_effects.Add(projectilePrefab.GetComponent<F_DOWN>(), false);
         GetComponent<SpriteRenderer>().color = Color.blue;
+        formula = "";
     }
 
     void Update()
@@ -41,6 +44,11 @@ public class EnemyKnob : MonoBehaviour
             part_effects[projectilePrefab.GetComponent<F_DOWN>()] = true;
             GetComponent<SpriteRenderer>().color = Color.red;
         }
+    }
 
+    public void SetFormula(string text)
+    {
+        formula = text;
+        Debug.Log("formula = " + formula);
     }
 }

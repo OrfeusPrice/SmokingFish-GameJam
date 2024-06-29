@@ -71,7 +71,10 @@ public class InteractiveObject : MonoBehaviour
                 rb.AddForce(new Vector2(float.Parse(floats[0].Value), float.Parse(floats[1].Value)));
                 break;
             case 'm':
-                rb.mass = float.Parse(Regex.Match(formula, @"\d+(\.?\d+)?").Value);
+                rb.mass = float.Parse(Regex.Match(Regex.Match(formula, @"m=\d+(\.?\d+)?").Value, @"\d+(\.?\d+)?").Value);
+                break;
+            case 'g':
+                rb.gravityScale =float.Parse(Regex.Match(Regex.Match(formula, @"g=-?\d+(\.?\d+)?").Value, @"-?\d+(\.?\d+)?").Value);
                 break;
         }
     }
@@ -81,10 +84,11 @@ public class InteractiveObject : MonoBehaviour
         text = text.Replace(" ", String.Empty);
         if (Regex.IsMatch(text, @"F=\(-?\d+(\.?\d+)?,-?\d+(\.?\d+)?\)") ||
             Regex.IsMatch(text, @"m=\d+(\.?\d+)?") ||
+            Regex.IsMatch(text, @"g=-?\d+(\.?\d+)?") ||
             text.ToLower().Equals("static") && rb.bodyType != RigidbodyType2D.Static ||
             text.ToLower().Equals("kinematic") && rb.bodyType != RigidbodyType2D.Kinematic ||
-            text.ToLower().Equals("dynamic") && rb.bodyType != RigidbodyType2D.Dynamic) // Если регексы подходят (сюда будем добавлять новые)
-        {
+            text.ToLower().Equals("dynamic") && rb.bodyType != RigidbodyType2D.Dynamic)
+        { // Если регексы подходят (сюда будем добавлять новые физические заклинания)
             Time.timeScale = 1;
             PhysMagic(text);
             return true;
