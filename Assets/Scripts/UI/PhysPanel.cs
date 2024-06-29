@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class PhysPanel : MonoBehaviour
 {
+    private GameObject guide;
     [SerializeField] private InteractiveObject obj;
     [SerializeField] private GameObject parent;
     [SerializeField] private string[] formulas;
@@ -19,6 +20,7 @@ public class PhysPanel : MonoBehaviour
 
     void Start()
     {
+        guide = GameObject.FindGameObjectWithTag("GuidPanel");
         camera = GameObject.FindGameObjectWithTag("MainCamera");
         dictFormsulas = new Dictionary<string, string>();
         input = GetComponent<TMP_InputField>();
@@ -31,7 +33,7 @@ public class PhysPanel : MonoBehaviour
     {
         if (parent.transform.localScale.magnitude == 0 && Input.GetKeyDown(KeyCode.E))
             OpenPanel();
-        else if (Time.timeScale != 0 && Input.GetKeyDown(KeyCode.E))
+        else if (Input.GetKeyDown(KeyCode.E))
             ClosePanel();
     }
 
@@ -45,7 +47,7 @@ public class PhysPanel : MonoBehaviour
                 parent.transform.localScale = new Vector3(0, 0, 0);
                 input.text = "";
             }
-            else
+            else if (parent.transform.localScale.magnitude > 0)
                 StartCoroutine(Error());
         }
         else
@@ -59,12 +61,12 @@ public class PhysPanel : MonoBehaviour
                     parent.transform.localScale = new Vector3(0, 0, 0);
                     input.text = "";
                 }
-                else
+                else if (parent.transform.localScale.magnitude > 0)
                 {
                     StartCoroutine(Error());
                 }
             }
-            else
+            else if (parent.transform.localScale.magnitude > 0)
             {
                 StartCoroutine(Error());
             }
@@ -73,10 +75,6 @@ public class PhysPanel : MonoBehaviour
 
     private IEnumerator Error()
     {
-        /*Vector3 vec = camera.transform.localPosition;
-        camera.transform.localPosition = new Vector3(vec.x - 0.5f, vec.y - 0.5f, vec.z);
-        yield return new WaitForSeconds(1f);
-        camera.transform.localPosition = vec;*/
         Vector3 vec = camera.transform.localPosition;
         float x;
         float y;
@@ -95,12 +93,16 @@ public class PhysPanel : MonoBehaviour
         camera.transform.position = vec;
     }
 
-    private void OpenPanel()
+    public void OpenPanel()
     {
-        parent.transform.localScale = new Vector3(1, 1, 1);
+        if (guide.transform.localScale.magnitude == 0)
+        {
+            input.text = "";
+            parent.transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 
-    private void ClosePanel()
+    public void ClosePanel()
     {
         parent.transform.localScale = new Vector3(0, 0, 0);
     }
