@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class PhysPanel : MonoBehaviour
 {
+    private GameObject guide;
     [SerializeField] private InteractiveObject obj;
     [SerializeField] private GameObject parent;
     [SerializeField] private string[] formulas;
@@ -19,6 +20,7 @@ public class PhysPanel : MonoBehaviour
 
     void Start()
     {
+        guide = GameObject.FindGameObjectWithTag("GuidPanel");
         camera = GameObject.FindGameObjectWithTag("MainCamera");
         dictFormsulas = new Dictionary<string, string>();
         input = GetComponent<TMP_InputField>();
@@ -93,8 +95,11 @@ public class PhysPanel : MonoBehaviour
 
     public void OpenPanel()
     {
-        input.text = "";
-        parent.transform.localScale = new Vector3(1, 1, 1);
+        if (guide.transform.localScale.magnitude == 0)
+        {
+            input.text = "";
+            parent.transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 
     public void ClosePanel()
