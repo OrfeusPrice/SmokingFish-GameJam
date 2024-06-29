@@ -73,10 +73,6 @@ public class PhysPanel : MonoBehaviour
 
     private IEnumerator Error()
     {
-        /*Vector3 vec = camera.transform.localPosition;
-        camera.transform.localPosition = new Vector3(vec.x - 0.5f, vec.y - 0.5f, vec.z);
-        yield return new WaitForSeconds(1f);
-        camera.transform.localPosition = vec;*/
         Vector3 vec = camera.transform.localPosition;
         float x;
         float y;
