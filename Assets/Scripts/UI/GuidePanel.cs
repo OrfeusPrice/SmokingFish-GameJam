@@ -26,12 +26,15 @@ public class GuidePanel : MonoBehaviour
 
     public void OpenGuide()
     {
-        next.SetActive(true);
-        prev.SetActive(false);
-        pageIndex = 0;
-        pageNum.text = (pageIndex + 1).ToString();
-        text.text = texts[pageIndex].ToString();
-        gameObject.transform.localScale = Vector3.one;
+        if (gameObject.transform.localScale.magnitude == 0)
+        {
+            next.SetActive(true);
+            prev.SetActive(false);
+            pageIndex = 0;
+            pageNum.text = (pageIndex + 1).ToString();
+            text.text = texts[pageIndex].ToString();
+            gameObject.transform.localScale = Vector3.one;
+        }
     }
 
     public void NextPage()
