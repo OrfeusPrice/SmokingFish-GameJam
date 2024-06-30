@@ -6,7 +6,6 @@ public class WMove : WState
 {
     public Transform p1;
     public Transform p2;
-    public Transform player;
 
     public bool goToP1;
     public bool goToP2;
