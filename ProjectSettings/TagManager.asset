@@ -11,6 +11,7 @@ TagManager:
   - Magic
   - GuidPanel
   - PhysInput
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - PhObj
   - NoneClick
   - Player
-  - 
+  - EnemyAttack
   - 
   - 
   - 

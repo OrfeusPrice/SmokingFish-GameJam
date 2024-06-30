@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4970654040506796854}
   - component: {fileID: 2780628107040811232}
   - component: {fileID: 8267383651736686074}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnemyKnob
   m_TagString: EnemyKnob
   m_Icon: {fileID: 0}
@@ -115,9 +115,9 @@ GameObject:
   - component: {fileID: 7125432966116110730}
   - component: {fileID: 1061999949124627212}
   - component: {fileID: 4712670447968470090}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,6 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpForce: 10
+  collider: {fileID: 0}
   isGrounded: 0
   groundLayer:
     serializedVersion: 2
@@ -311,7 +312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3285291540571370369}
   - component: {fileID: 290506179370284604}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnemyStick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6921750993244807557}
   - component: {fileID: 8179595270597578386}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sticks
   m_TagString: Untagged
   m_Icon: {fileID: 0}

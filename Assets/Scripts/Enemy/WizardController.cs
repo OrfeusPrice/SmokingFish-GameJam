@@ -16,4 +16,9 @@ public class WizardController : MonoBehaviour
     {
         State.DoSmth();
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "PhObj") Destroy(this.gameObject); 
+    }
 }
