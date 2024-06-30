@@ -32,7 +32,10 @@ public class GuidePanel : MonoBehaviour
 
     public void OpenGuide()
     {
-        if (phys.transform.localScale.magnitude == 0 && gameObject.transform.localScale.magnitude == 0)
+        if (gameObject.transform.localScale.magnitude != 0)
+            gameObject.transform.localScale = Vector3.zero;
+
+        else if (phys.transform.localScale.magnitude == 0 && gameObject.transform.localScale.magnitude == 0)
         {
             next.SetActive(true);
             prev.SetActive(false);

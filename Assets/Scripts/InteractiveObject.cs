@@ -35,6 +35,7 @@ public class InteractiveObject : MonoBehaviour
         if (panel.transform.localScale.magnitude == 0 && mouseOnColl && Input.GetMouseButtonDown(1))
         {
             physPanel.OpenPanel();
+            StopCoroutine(WaitingFormula());
             StartCoroutine(WaitingFormula());
             Debug.Log("Click RMB");
         }
