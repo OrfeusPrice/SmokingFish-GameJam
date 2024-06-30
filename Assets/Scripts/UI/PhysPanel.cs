@@ -75,7 +75,7 @@ public class PhysPanel : MonoBehaviour
 
     private IEnumerator Error()
     {
-        GameObject.Find("SoundManager").GetComponent<Sounds>().PlaySound(3, 0.4f);
+        GameObject.Find("SoundManager").GetComponent<Sounds>().PlaySound(3, 0.2f);
         Vector3 vec = camera.transform.localPosition;
         float x;
         float y;
