@@ -10,16 +10,18 @@ public class Sounds : MonoBehaviour
     [SerializeField] private AudioClip[] sounds;
     [SerializeField] private int playNow;
     [SerializeField] private Sprite[] soundIcons;
+    private Volume v;
     private UnityEngine.UI.Image button;
     private AudioSource source;
     private float volume;
 
     void Start()
     {
-        volume = 1f;
+        v = GameObject.Find("Volume").GetComponent<Volume>();
         source = GetComponent<AudioSource>();
         button = GameObject.Find("SoundButton").GetComponent<UnityEngine.UI.Image>();
         source.clip = STs[playNow];
+        volume = v.GetVolume();
         source.Play();
     }
 
@@ -41,6 +43,7 @@ public class Sounds : MonoBehaviour
             button.sprite = soundIcons[1];
         }
 
+        v.SetVolume(volume);
         source.volume = 0.4f * volume;
     }
 
