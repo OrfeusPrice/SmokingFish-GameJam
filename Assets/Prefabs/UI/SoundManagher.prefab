@@ -48,7 +48,11 @@ MonoBehaviour:
   STs:
   - {fileID: 8300000, guid: ac4f1639be2fb034eb54d92bcff9ed26, type: 3}
   - {fileID: 8300000, guid: 65f0b6cdb8b313943a65aa266df23a97, type: 3}
+  sounds: []
   playNow: 0
+  soundIcons:
+  - {fileID: 21300000, guid: 11e3d102a51b3e1409ff67d202690d8b, type: 3}
+  - {fileID: 21300000, guid: 2dcc619a49088ab4599cc7e3b756a1ed, type: 3}
 --- !u!82 &963804437541116507
 AudioSource:
   m_ObjectHideFlags: 0
