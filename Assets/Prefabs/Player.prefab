@@ -238,6 +238,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 264
+  playNow: 0
 --- !u!95 &1061999949124627212
 Animator:
   serializedVersion: 5
@@ -351,7 +352,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6837b2efc3fe1ba46b2135167e8f21c0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0

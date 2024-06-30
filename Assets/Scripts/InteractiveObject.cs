@@ -32,7 +32,7 @@ public class InteractiveObject : MonoBehaviour
 
     private void RMBPressed()
     {
-        if (panel.transform.localScale.magnitude == 0 && mouseOnColl && Input.GetMouseButtonDown(1))
+        if (panel.transform.localScale.magnitude == 0 && mouseOnColl && Input.GetMouseButtonDown(1) && formula.Equals(string.Empty))
         {
             physPanel.OpenPanel();
             StopCoroutine(WaitingFormula());
@@ -95,7 +95,7 @@ public class InteractiveObject : MonoBehaviour
         { // ≈сли регексы подход€т (сюда будем добавл€ть новые физические заклинани€)
             Time.timeScale = 1;
             PhysMagic(text);
-            GameObject.Find("SoundManager").GetComponent<Sounds>().PlaySound(2, 0.4f);
+            GameObject.Find("SoundManager").GetComponent<Sounds>().PlaySound(2, 0.1f);
             return true;
         }
         return false;
@@ -103,7 +103,15 @@ public class InteractiveObject : MonoBehaviour
 
     private void ActFormula()
     {
-
+        switch(formula)
+        {
+            case "A=FS":
+                GetComponent<Platform>().SetActive();
+                break;
+            case "n=(Q1-Q2)/Q1*100%":
+                GetComponent<Door>().SetActive();
+                break;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -14,11 +14,13 @@ public class PlayerMove : MonoBehaviour
     private GameObject panel;
     private Sounds soundManager;
     private AudioSource audioSource;
+    [SerializeField] private int playNow;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         soundManager = GameObject.Find("SoundManager").GetComponent<Sounds>();
+        soundManager.SetMusic(playNow);
         rb = GetComponent<Rigidbody2D>();
         //collider = GetComponent<BoxCollider2D>();
         panel = GameObject.FindGameObjectWithTag("PhysPanel");
