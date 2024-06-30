@@ -10,7 +10,7 @@ public class Buttons : MonoBehaviour
     private GameObject canvas;
     [SerializeField] string[] formulas;
     [SerializeField] TMP_Text text;
-    private (int, int) xrange = (-100, 1800);// (-500, 500);
+    private (int, int) xrange = (-100, 1800); // (-500, 500);
     private (int, int) yrange = (0, 500); // (-300, -100);
     private float maxTime = 4f;
 

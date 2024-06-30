@@ -104,6 +104,7 @@ public class PhysPanel : MonoBehaviour
 
     public void ClosePanel()
     {
+        Time.timeScale = 1;
         parent.transform.localScale = new Vector3(0, 0, 0);
     }
 
