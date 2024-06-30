@@ -6525,7 +6525,7 @@ MonoBehaviour:
   - 5
   - 7
   - 9
-  smoothing: 30
+  smoothing: 10
 --- !u!1 &596650658
 GameObject:
   m_ObjectHideFlags: 0
