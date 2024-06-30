@@ -4167,7 +4167,6 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3182173005541861742, guid: 516a02ee5b458464bbf56805022ea2ce, type: 3}
-<<<<<<< HEAD
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
@@ -4179,11 +4178,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
-=======
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
->>>>>>> 67541df6f99494a3a00d76d7934252d49483843b
     - target: {fileID: 4260067636553089581, guid: 516a02ee5b458464bbf56805022ea2ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.221558
