@@ -23,12 +23,7 @@ public class Sounds : MonoBehaviour
         source.Play();
     }
 
-    void Update()
-    {
-        
-    }
-
-    public void PlaySound(float vol, int index)
+    public void PlaySound(int index, float vol)
     {
         source.PlayOneShot(sounds[index], vol * volume);
     }
@@ -48,4 +43,6 @@ public class Sounds : MonoBehaviour
 
         source.volume = 0.4f * volume;
     }
+
+    public float GetVolume() => volume;
 }

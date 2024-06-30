@@ -95,6 +95,7 @@ public class InteractiveObject : MonoBehaviour
         { // ≈сли регексы подход€т (сюда будем добавл€ть новые физические заклинани€)
             Time.timeScale = 1;
             PhysMagic(text);
+            GameObject.Find("SoundManager").GetComponent<Sounds>().PlaySound(2, 0.4f);
             return true;
         }
         return false;
