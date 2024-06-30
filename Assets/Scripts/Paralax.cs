@@ -13,6 +13,7 @@ public class Paralax : MonoBehaviour
 
     void Start()
     {
+        cam = GameObject.FindWithTag("MainCamera");
         startPosX = transform.position.x;
         startPosY = transform.position.y;
     }
