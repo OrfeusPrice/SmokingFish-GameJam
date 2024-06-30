@@ -21,7 +21,7 @@ public class Buttons : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void QuitGame()
