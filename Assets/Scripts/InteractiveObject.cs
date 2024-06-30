@@ -102,7 +102,12 @@ public class InteractiveObject : MonoBehaviour
 
     private void ActFormula()
     {
-
+        switch(formula)
+        {
+            case "A=FS":
+                GetComponent<Platform>().SetActive();
+                break;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
