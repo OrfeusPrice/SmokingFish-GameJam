@@ -68530,6 +68530,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 6893362187630871147, guid: 516a02ee5b458464bbf56805022ea2ce, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7125432966116110730, guid: 516a02ee5b458464bbf56805022ea2ce, type: 3}
       propertyPath: collider
       value: 
