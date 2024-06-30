@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Particle : MonoBehaviour
 {
-    public Dictionary<ParticleEffect, bool> part_effects = new Dictionary<ParticleEffect, bool>();
+    //public Dictionary<ParticleEffect, bool> part_effects = new Dictionary<ParticleEffect, bool>();
     public EnemyKnob knob;
     public string formula;
 
@@ -13,7 +13,7 @@ public class Particle : MonoBehaviour
     {
         knob = GameObject.FindGameObjectWithTag("EnemyKnob").GetComponent<EnemyKnob>();
         formula = knob.GetFormula();
-        part_effects = knob.part_effects;
+        //part_effects = knob.part_effects;
         StartCoroutine(Destr());
     }
 
@@ -21,13 +21,13 @@ public class Particle : MonoBehaviour
     {
         if (collision.gameObject.tag == "PhObj")
         {
-            foreach (var item in part_effects)
-            {
-                if (item.Value == true)
-                {
-                    item.Key.Effect(collision.gameObject);
-                }
-            }
+            //foreach (var item in part_effects)
+            //{
+            //    if (item.Value == true)
+            //    {
+            //        item.Key.Effect(collision.gameObject);
+            //    }
+            //}
             Destroy(this.gameObject);
         }
     }
