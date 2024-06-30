@@ -19,6 +19,8 @@ public class Sounds : MonoBehaviour
 
     void Start()
     {
+        if (GameObject.FindGameObjectsWithTag("Sounds").Length > 1)
+            Destroy(gameObject);
         //v = GameObject.Find("Volume").GetComponent<Volume>();
         source = GetComponent<AudioSource>();
         button = GameObject.Find("SoundButton").GetComponent<UnityEngine.UI.Image>();
@@ -49,6 +51,12 @@ public class Sounds : MonoBehaviour
 
         //v.SetVolume(volume);
         musicSource.volume = 0.4f * volume;
+    }
+
+    public void SetMusic(int index)
+    {
+        musicSource.clip = STs[index];
+        musicSource.Play();
     }
 
     public float GetVolume() => volume;
