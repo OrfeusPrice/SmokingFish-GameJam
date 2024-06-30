@@ -5310,7 +5310,7 @@ GameObject:
   - component: {fileID: 426644394}
   - component: {fileID: 426644393}
   m_Layer: 0
-  m_Name: Square
+  m_Name: END
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
