@@ -210,6 +210,7 @@ MonoBehaviour:
   - Fa=grV
   - I=q/t
   camera: {fileID: 0}
+  input2: {fileID: 3801962318858005810}
 --- !u!1 &1054363820952497769
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,8 +445,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 2
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

@@ -15,6 +15,7 @@ public class PhysPanel : MonoBehaviour
     private Dictionary<string, string> dictFormsulas;
     public GameObject camera;
     private TMP_InputField input;
+    [SerializeField] private TMP_Text input2;
     private string formula;
     private EnemyKnob enemyKnob;
 
@@ -99,6 +100,7 @@ public class PhysPanel : MonoBehaviour
         if (guide.transform.localScale.magnitude == 0)
         {
             input.text = "";
+            input2.text = "";
             parent.transform.localScale = new Vector3(1, 1, 1);
         }
     }
