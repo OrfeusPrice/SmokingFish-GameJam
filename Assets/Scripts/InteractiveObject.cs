@@ -32,7 +32,7 @@ public class InteractiveObject : MonoBehaviour
 
     private void RMBPressed()
     {
-        if (panel.transform.localScale.magnitude == 0 && mouseOnColl && Input.GetMouseButtonDown(1))
+        if (panel.transform.localScale.magnitude == 0 && mouseOnColl && Input.GetMouseButtonDown(1) && formula.Equals(string.Empty))
         {
             physPanel.OpenPanel();
             StopCoroutine(WaitingFormula());
@@ -106,6 +106,9 @@ public class InteractiveObject : MonoBehaviour
         {
             case "A=FS":
                 GetComponent<Platform>().SetActive();
+                break;
+            case "n=(Q1-Q2)/Q1*100%":
+                GetComponent<Door>().SetActive();
                 break;
         }
     }
