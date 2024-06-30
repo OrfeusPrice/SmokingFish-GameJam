@@ -172,4 +172,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
-  formula: A=FS
+  formula: 

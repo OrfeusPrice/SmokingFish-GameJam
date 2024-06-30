@@ -19,6 +19,16 @@ public class WizardController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "PhObj") Destroy(this.gameObject); 
+        if (collision.gameObject.tag == "PhObj") Destroy(this.gameObject);
+
+        /*
+        if (collision.gameObject.tag == "Magic")
+        {
+            string formula = collision.gameObject.GetComponent<Particle>().GetFormula();
+            Destroy(collision.gameObject);
+            if (formula == "I=q/t")
+                Destroy(this.gameObject);
+        }
+        */
     }
 }

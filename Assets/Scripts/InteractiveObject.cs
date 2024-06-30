@@ -37,7 +37,6 @@ public class InteractiveObject : MonoBehaviour
             physPanel.OpenPanel();
             StopCoroutine(WaitingFormula());
             StartCoroutine(WaitingFormula());
-            Debug.Log("Click RMB");
         }
     }
 
@@ -68,25 +67,28 @@ public class InteractiveObject : MonoBehaviour
         switch(formula[0])
         {
             case 'F':
-                MatchCollection floats = Regex.Matches(Regex.Match(formula, @"F=\(-?\d+(\.?\d+)?,-?\d+(\.?\d+)?\)").Value,
-                    @"-?\d+(\.?\d+)?");
+                MatchCollection floats = Regex.Matches(Regex.Match(formula, @"F=\(-?\d+(,?\d+)?;-?\d+(,?\d+)?\)").Value,
+                    @"-?\d+(,?\d+)?");
                 rb.AddForce(new Vector2(float.Parse(floats[0].Value), float.Parse(floats[1].Value)));
                 break;
             case 'm':
-                rb.mass = float.Parse(Regex.Match(Regex.Match(formula, @"m=\d+(\.?\d+)?").Value, @"\d+(\.?\d+)?").Value);
+                rb.mass = float.Parse(Regex.Match(Regex.Match(formula, @"m=\d+(,?\d+)?").Value, @"\d+(,?\d+)?").Value);
                 break;
             case 'g':
-                rb.gravityScale =float.Parse(Regex.Match(Regex.Match(formula, @"g=-?\d+(\.?\d+)?").Value, @"-?\d+(\.?\d+)?").Value);
+                rb.gravityScale =float.Parse(Regex.Match(Regex.Match(formula, @"g=-?\d+(,?\d+)?").Value, @"-?\d+(,?\d+)?").Value);
                 break;
         }
+
+        gameObject.tag = "PhObj";
     }
 
     public bool GetFormula(string text)
     {
         text = text.Replace(" ", String.Empty);
-        if (Regex.IsMatch(text, @"F=\(-?\d+(\.?\d+)?,-?\d+(\.?\d+)?\)") ||
-            Regex.IsMatch(text, @"m=\d+(\.?\d+)?") ||
-            Regex.IsMatch(text, @"g=-?\d+(\.?\d+)?") ||
+        text = text.Replace('.', ',');
+        if (Regex.IsMatch(text, @"F=\(-?\d+(,?\d+)?;-?\d+(,?\d+)?\)") ||
+            Regex.IsMatch(text, @"m=\d+(,?\d+)?") ||
+            Regex.IsMatch(text, @"g=-?\d+(,?\d+)?") ||
             text.ToLower().Equals("static") && rb.bodyType != RigidbodyType2D.Static ||
             text.ToLower().Equals("kinematic") && rb.bodyType != RigidbodyType2D.Kinematic ||
             text.ToLower().Equals("dynamic") && rb.bodyType != RigidbodyType2D.Dynamic)

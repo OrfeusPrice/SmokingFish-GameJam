@@ -45,6 +45,7 @@ public class Sounds : MonoBehaviour
             volume = 1f;
             button.sprite = soundIcons[1];
         }
-        source.volume = volume;
+
+        source.volume = 0.4f * volume;
     }
 }

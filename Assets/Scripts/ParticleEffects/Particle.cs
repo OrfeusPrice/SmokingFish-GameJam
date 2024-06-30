@@ -19,6 +19,7 @@ public class Particle : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        /*
         if (collision.gameObject.tag == "PhObj")
         {
             //foreach (var item in part_effects)
@@ -30,6 +31,11 @@ public class Particle : MonoBehaviour
             //}
             Destroy(this.gameObject);
         }
+        */
+
+        if (collision.gameObject.tag == "Enemy" && formula == "I=q/t")
+            Destroy(collision.gameObject);
+        Destroy(this.gameObject);
     }
 
     public string GetFormula() => formula;

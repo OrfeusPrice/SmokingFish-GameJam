@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6424725162312292957}
   - component: {fileID: 7163973186495324377}
   - component: {fileID: -7126265275716343340}
+  - component: {fileID: -2515762218843437269}
   m_Layer: 11
   m_Name: EnemyBullet 1
   m_TagString: Fireball
@@ -183,3 +184,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-2515762218843437269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3717125786496329115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ea097b6a229f5146826e3ecc500e0dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 0}
+  formula: 
