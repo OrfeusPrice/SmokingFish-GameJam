@@ -11,6 +11,7 @@ public class Particle : MonoBehaviour
 
     private void Start()
     {
+        GameObject.Find("SoundManager").GetComponent<Sounds>().PlaySound(0, 0.4f);
         knob = GameObject.FindGameObjectWithTag("EnemyKnob").GetComponent<EnemyKnob>();
         formula = knob.GetFormula();
         //part_effects = knob.part_effects;

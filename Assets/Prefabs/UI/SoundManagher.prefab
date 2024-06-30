@@ -48,7 +48,11 @@ MonoBehaviour:
   STs:
   - {fileID: 8300000, guid: ac4f1639be2fb034eb54d92bcff9ed26, type: 3}
   - {fileID: 8300000, guid: 65f0b6cdb8b313943a65aa266df23a97, type: 3}
-  sounds: []
+  sounds:
+  - {fileID: 8300000, guid: d775c7556476f804984d8d24665da604, type: 3}
+  - {fileID: 8300000, guid: bb2e9176123a88446bb04b6bb7cfd335, type: 3}
+  - {fileID: 8300000, guid: a399faff4b430cd4493de4af7254b6ca, type: 3}
+  - {fileID: 8300000, guid: 3c0af85ec8751af49b7f5262ba3d53e2, type: 3}
   playNow: 0
   soundIcons:
   - {fileID: 21300000, guid: 11e3d102a51b3e1409ff67d202690d8b, type: 3}

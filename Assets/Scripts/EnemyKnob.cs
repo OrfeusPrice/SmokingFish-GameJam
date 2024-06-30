@@ -46,7 +46,11 @@ public class EnemyKnob : MonoBehaviour
         //}
     }
 
-    public void SetFormula(string text) => formula = text;
+    public void SetFormula(string text)
+    {
+        GameObject.Find("SoundManager").GetComponent<Sounds>().PlaySound(2, 0.4f);
+        formula = text;
+    }
 
     public string GetFormula() => formula;
 }

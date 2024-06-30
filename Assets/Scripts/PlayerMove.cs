@@ -12,9 +12,13 @@ public class PlayerMove : MonoBehaviour
     private bool isGrounded = false;
     public LayerMask groundLayer;
     private GameObject panel;
+    private Sounds soundManager;
+    private AudioSource audioSource;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        soundManager = GameObject.Find("SoundManager").GetComponent<Sounds>();
         rb = GetComponent<Rigidbody2D>();
         //collider = GetComponent<BoxCollider2D>();
         panel = GameObject.FindGameObjectWithTag("PhysPanel");
@@ -24,16 +28,33 @@ public class PlayerMove : MonoBehaviour
     {
         isGrounded = Physics2D.IsTouchingLayers(collider, groundLayer);
 
-        if (!isGrounded) GetComponent<Animator>().SetBool("isJump", true);
+        if (!isGrounded)
+        {
+            GetComponent<Animator>().SetBool("isJump", true);
+            if (audioSource.isPlaying)
+                audioSource.Stop();
+        }
         else GetComponent<Animator>().SetBool("isJump", false);
+
+        if (soundManager.GetVolume() == 0)
+            audioSource.Stop();
 
         if (panel.transform.localScale.magnitude == 0)
         {
             float horizontalInput = Input.GetAxis("Horizontal");
             rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
 
-            if (horizontalInput != 0) GetComponent<Animator>().SetBool("isRun", true);
-            else GetComponent<Animator>().SetBool("isRun", false);
+            if (horizontalInput != 0)
+            {
+                if (soundManager.GetVolume() == 1 && !audioSource.isPlaying)
+                    audioSource.Play();
+                GetComponent<Animator>().SetBool("isRun", true);
+            }
+            else
+            {
+                audioSource.Stop();
+                GetComponent<Animator>().SetBool("isRun", false);
+            }
 
             if (horizontalInput < 0) GetComponent<SpriteRenderer>().flipX = true;
             else if (horizontalInput > 0) GetComponent<SpriteRenderer>().flipX = false;

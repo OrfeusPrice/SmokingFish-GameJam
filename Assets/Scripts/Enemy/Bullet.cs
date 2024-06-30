@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
 {
     private void Start()
     {
+        GameObject.Find("SoundManager").GetComponent<Sounds>().PlaySound(1, 0.5f);
         StartCoroutine(Destr());
     }
 
