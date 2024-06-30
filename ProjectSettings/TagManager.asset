@@ -12,6 +12,8 @@ TagManager:
   - GuidPanel
   - PhysInput
   - Ground
+  - Sounds
+  - Fireball
   layers:
   - Default
   - TransparentFX

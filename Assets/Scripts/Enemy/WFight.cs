@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class WFight : WState
 {
-    public GameObject bulletPrefab; 
-    public float fireRate = 1f; 
-    public float bulletSpeed = 10f; 
-    public float range = 5f; 
+    public GameObject bulletPrefab;
+    public float fireRate = 1f;
+    public float bulletSpeed = 10f;
+    public float range = 5f;
 
     private float nextFireTime = 0f;
     void Start()
     {
-        
+
     }
 
     public override void Enter()
@@ -47,7 +47,10 @@ public class WFight : WState
 
         Vector2 direction = (player.position - transform.position).normalized;
 
-        bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, 0) * bulletSpeed;
+        if (bullet.tag == "Fireball")
+            bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+        else
+            bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, 0) * bulletSpeed;
     }
 
     public override void ChangeState()

@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: -7691867609401363541}
   - component: {fileID: 6424725162312292957}
   - component: {fileID: 7163973186495324377}
-  - component: {fileID: 5232298815270769734}
+  - component: {fileID: -7126265275716343340}
   m_Layer: 11
-  m_Name: EnemyBullet
-  m_TagString: Magic
+  m_Name: EnemyBullet 1
+  m_TagString: Fireball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: b30fb8a240430cb4fb34c7fdc891e926, type: 3}
-  m_Color: {r: 0.2602079, g: 0, b: 0.2830189, a: 1}
+  m_Sprite: {fileID: 21300000, guid: a74da400f08b35d489c837658f327fe1, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,8 +102,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 0.0001
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -114,7 +114,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 0
 --- !u!114 &6424725162312292957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,10 +159,10 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.012987852, y: 0}
-  m_Size: {x: 0.079908535, y: 0.32}
+  m_Offset: {x: -0.006279111, y: -0.006279111}
+  m_Size: {x: 0.14744179, y: 0.14744179}
   m_Direction: 0
---- !u!95 &5232298815270769734
+--- !u!95 &-7126265275716343340
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -172,7 +172,7 @@ Animator:
   m_GameObject: {fileID: 3717125786496329115}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: eed108ab6c9ff65418aa362c54814713, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0e822938a6e36614f9927178f2629e9b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
