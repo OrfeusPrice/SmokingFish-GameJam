@@ -5,6 +5,7 @@ using UnityEngine;
 public class PonyMov : MonoBehaviour
 {
     private Sounds soundManager;
+    [SerializeField] private int playNow;
 
     void Start()
     {
@@ -12,7 +13,7 @@ public class PonyMov : MonoBehaviour
     }
     private void Update()
     {
-        soundManager.SetMusic(1);
+        soundManager.SetMusic(playNow);
         Destroy(gameObject);
     }
 }

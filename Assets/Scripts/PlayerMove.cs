@@ -28,6 +28,7 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+
         isGrounded = Physics2D.IsTouchingLayers(collider, groundLayer);
 
         if (!isGrounded)

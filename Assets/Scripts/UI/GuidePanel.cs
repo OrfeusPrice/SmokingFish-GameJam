@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GuidePanel : MonoBehaviour
 {
@@ -28,10 +29,15 @@ public class GuidePanel : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-            gameObject.transform.localScale = Vector3.zero;
+        {
+            if (gameObject.transform.localScale.magnitude != 0)
+                gameObject.transform.localScale = Vector3.zero;
+            else if (phys.transform.localScale.magnitude == 0)
+                SceneManager.LoadScene("MainMenu");
+        }
     }
 
-    public void OpenGuide()
+        public void OpenGuide()
     {
         if (gameObject.transform.localScale.magnitude != 0)
             gameObject.transform.localScale = Vector3.zero;
