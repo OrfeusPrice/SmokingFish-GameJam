@@ -7596,11 +7596,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3924613134241175626, guid: 6c175c203a95aa24cb2d87df2cf44374, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3924613134241175626, guid: 6c175c203a95aa24cb2d87df2cf44374, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3924613134241175626, guid: 6c175c203a95aa24cb2d87df2cf44374, type: 3}
       propertyPath: m_LocalPosition.x
